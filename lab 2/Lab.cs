@@ -6,8 +6,8 @@ namespace ConsoleApp8
     {
         static void Main(string[] args)
         {
-
-            while (true)
+            bool loop1 = true;
+            while (loop1)
             {
                 double Room1length, Room1width, Room1height, Room2width, Room2length, Room2height, Room1area, Room1perimeter, Room2area, Room2perimeter, Room1Volume, Room2Volume;
                 string UserAnswer;
@@ -15,17 +15,14 @@ namespace ConsoleApp8
                 Console.WriteLine("Enter length of the first room ");
                 Room1length = Convert.ToDouble(Console.ReadLine());
 
-
                 Console.WriteLine("Enter width of the first room ");
                 Room1width = Convert.ToDouble(Console.ReadLine());
 
                 Console.WriteLine("Enter the height of the first room");
                 Room1height = Convert.ToDouble(Console.ReadLine());
 
-
                 Console.WriteLine("Enter length of the secound room ");
                 Room2length = Convert.ToDouble(Console.ReadLine());
-
 
                 Console.WriteLine("Enter width of the secound room ");
                 Room2width = Convert.ToDouble(Console.ReadLine());
@@ -57,20 +54,31 @@ namespace ConsoleApp8
 
                 Console.WriteLine("The volume of the secound room is {0}\"", Room2Volume);
 
-                Console.WriteLine("Would you like to continue (y/n)");
-                UserAnswer = Console.ReadLine().ToLower();
-
-                if (UserAnswer == "y")
+                bool Respones = true;
+                while (Respones)
                 {
-                    continue;
+                    Console.WriteLine("Would you like to continue (y/n)");
+                    UserAnswer = Console.ReadLine().ToLower();
+
+                    if (UserAnswer == "y")
+                    {
+                        Respones = false;
+                    }
+
+                    else if (UserAnswer == "n")
+                    {
+                        Respones = false;
+                        loop1 = false;
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Invlad entry please try agian");
+                    }
+
                 }
 
-                else
-                {
-                    break;
-                }
-            }
-            
+            }    
         }
     }
 }
